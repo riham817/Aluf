@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise - Duck Theme 🦆</title>
+    <!-- Importing Fredoka & Quicksand for playful, super cute typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Earphones Overlay over Burgundy -->
+    <div class="bg-earphones-overlay"></div>
+
+    <!-- Floating Background Duck & Star Sparkles -->
+    <div class="floating-bg-decorations">
+        <span class="decor-item decor-1">🦆</span>
+        <span class="decor-item decor-2">✨</span>
+        <span class="decor-item decor-3">🐥</span>
+        <span class="decor-item decor-4">⭐</span>
+        <span class="decor-item decor-5">💖</span>
+        <span class="decor-item decor-6">🦆</span>
+    </div>
+
+    <!-- Canvas Confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <main class="app-container">
+        
+        <!-- PAGE 1: The Main Entrance -->
+        <section id="page-1" class="page active">
+            <div class="page-inner p1-layout">
+                
+                <!-- Left Column / Hero Section -->
+                <div class="left-col hero-content">
+                    <div class="badge-wrapper">
+                        <span class="cute-badge">
+                            <span class="badge-duck">🦆</span> Burgundy Color website btw <span class="badge-sparkle">✨</span>
+                        </span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        কি খবর তোর<br>
+                        <span class="highlight-text">সহপাঠী!</span> 🦆💛
+                    </h1>
+                    
+                    <!-- Cute Polaroid Frame with Washi Tape -->
+                    <div class="polaroid-wrapper">
+                        <div class="washi-tape"></div>
+                        <div class="polaroid-frame">
+                            <img src="assets/hero-photo.jpg" alt="Alif Hero Photo" onerror="this.src='https://placehold.co/400x500/ffd700/000?text=Birthday+Queen'">
+                            <div class="polaroid-caption">পছন্দের ছবি দিলাম 
+                                ja jiley apni jindegi</div>
+                        </div>
+                    </div>
+
+                    <!-- Messenger Screenshots Slider (Wider & Uncropped) -->
+                    <div class="messenger-preview-box">
+                        <div class="messenger-header">
+                            <span class="chat-dot red"></span>
+                            <span class="chat-dot yellow"></span>
+                            <span class="chat-dot green"></span>
+                            <span class="chat-title">Self obsession at its peak 💬</span>
+                        </div>
+                        <div class="slider-container" id="messenger-slider">
+                            <div class="slider-track" id="messenger-track">
+                                <div class="slide">
+                                    <img src="assets/messenger1.jpg" alt="Messenger Screenshot 1">
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/messenger2.jpg" alt="Messenger Screenshot 2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-indicators" id="messenger-dots">
+                            <span class="dot active" onclick="setMessengerSlide(0)"></span>
+                            <span class="dot" onclick="setMessengerSlide(1)"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column / Bestie Quiz Card (Aligned to Right) -->
+                <div class="right-col quiz-content">
+                    <div class="quiz-card">
+                        <div class="card-duck-pin">🦆</div>
+                        <div class="quiz-badge">Level 1 Security</div>
+                        <h2 class="quiz-heading">Security Check:<br><span class="quiz-sub">তোর কুচুপুচ কে ??!! 🕵️‍♀️</span></h2>
+                        <p class="quiz-desc"> বুঝে শুনে এন্সার দিস...🐥</p>
+                        
+                        <div class="options">
+                            <button class="bubbly-btn quiz-btn primary-btn" onclick="handleQuiz('Mahir')">
+                                <span class="btn-emoji">🦆</span>
+                                <span class="btn-label">মাহির</span>
+                                <span class="btn-shine"></span>
+                            </button>
+                            <button class="bubbly-btn quiz-btn secondary-btn" onclick="handleQuiz('Tinni')">
+                                <span class="btn-emoji">✨</span>
+                                <span class="btn-label">অভদ্র তিন্নি</span>
+                                <span class="btn-shine"></span>
+                            </button>
+                            <button class="bubbly-btn quiz-btn secondary-btn" onclick="handleQuiz('Munira')">
+                                <span class="btn-emoji">✨</span>
+                                <span class="btn-label">জন্ডিস মুনিরা</span>
+                                <span class="btn-shine"></span>
+                            </button>
+                        </div>
+                        <div class="card-footer-decor">
+                            <span>💛 Random Joke from my laptop: What type of birthday cake do ghosts prefer?___ “I scream” cake</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PAGE 2: Birthday Celebration & Letter -->
+        <section id="page-2" class="page hidden">
+            <div class="page-inner column-layout">
+                <div class="grand-header" onclick="triggerBirthdayCelebration()" title="Click to replay full celebration! 🎉">
+                    <div class="grand-badge-wrapper">
+                        <span class="grand-mini-badge">✨ 👑 আলিফ লায়লার শুভ জন্মদিন 👑 ✨</span>
+                    </div>
+                    <div class="grand-title-row">
+                        <span class="floating-duck">🦆</span>
+                        <h1 class="grand-title">Happy Birthday! <span class="title-sparkle"></span></h1>
+                        <span class="floating-duck right-duck">🐥</span>
+                    </div>
+                    <p class="grand-subtitle"> 🦆✨</p>
+                </div>
+                
+                <!-- Parchment Letter with Custom Wax Seal -->
+                <div class="parchment-letter-wrapper">
+                    <div class="wax-seal">🦆</div>
+                    <div class="parchment-letter">
+                        <h2>প্রিয় সহপাঠী আলিফ, </h2>
+                        <p>শুভ জন্মদিন, আরো ১ বছর বেড়ে গেলো। অও সরি। তুই তো মাইনর। এক্সামের মধ্যে তোর জন্য বসে বসে এগুলা বানাচ্ছি সন্ধ্যা থেকে, বুজতেছস?! এতো এফোর্ট দিতামও না, সময় ই নাই, পরে ভাবলাম এত সুন্দর করে আমাকে কেউ গিফট দেয় নাই কখনো, সহপাঠীর জন্য এইটুক তো করাই যাই।   </p>
+                        <p>যাই হোক ভালো থাকিস। দোয়া করি পরের বছর আরো ভালো যাক। হাতের ব্যায়াম করিস। ফাস্টফুড না খেয়ে পিনাট বাটার খাইস ✨</p>
+                        <p class="signature">- ইতি your কুচুপুচু Mahir 🦆💛</p>
+                        <div class="letter-photo-wrapper">
+                            <img src="assets/letter.jpg" alt="Letter Memory Photo" class="letter-photo">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fast Food Gift Trap Section -->
+                <div class="gift-section-card">
+                    <div class="gift-header">
+                        <span class="gift-icon">🎁</span>
+                        <h2>এইনে তোর গিফট!</h2>
+                        <span class="gift-icon">🍔</span>
+                    </div>
+                    <p class="gift-subtext">ফুডপান্ডা ডেলিভারী ফর ইউ:</p>
+
+                    <div class="food-gallery">
+                        <div class="food-item">
+                            <img src="assets/food1.jpg" alt="Platter 1" onerror="this.src='https://placehold.co/180x180/ffa500/000?text=Juicy+Burger+🍔'">
+                            <span>Platter 1</span>
+                        </div>
+                        <div class="food-item">
+                            <img src="assets/food2.jpg" alt="Platter 2" onerror="this.src='https://placehold.co/180x180/ffa500/000?text=Crispy+Fries+🍟'">
+                            <span>Platter 2</span>
+                        </div>
+                        <div class="food-item">
+                            <img src="assets/food3.jpg" alt="Platter 3" onerror="this.src='https://placehold.co/180x180/ffa500/000?text=Loaded+Pizza+🍕'">
+                            <span>Platter 3</span>
+                        </div>
+                    </div>
+
+                    <div class="gift-actions">
+                        <button id="accept-gift-btn" class="bubbly-btn gift-btn accept-btn" onclick="handleAcceptGift()">
+                            <span class="btn-emoji">😋</span>
+                            <span class="btn-label">খাবো 🍔</span>
+                            <span class="btn-shine"></span>
+                        </button>
+                        <button class="bubbly-btn gift-btn decline-btn" onclick="handleDeclineGift()">
+                            <span class="btn-emoji">🙈</span>
+                            <span class="btn-label">খাবো না 🚫</span>
+                            <span class="btn-shine"></span>
+                        </button>
+                    </div>
+                    <p id="gift-hint" class="hint-text"></p>
+                </div>
+
+                <!-- Bottom Navigation to Page 3 -->
+                <div class="next-page-nav">
+                    <button class="bubbly-btn shiny-cta-btn" onclick="goToPage(3)">
+                        <span class="btn-emoji">📸</span>
+                        <span class="btn-label">আলুফের গ্যালারি </span>
+                        <span class="btn-shine"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: Memories Gallery & The Treat Location Trap -->
+        <section id="page-3" class="page hidden">
+            <div class="page-inner column-layout">
+                
+                <div class="memories-header">
+                    <span class="badge-duck">📸</span>
+                    <h1 class="memories-title">Alif Layla Album</h1>
+                    <p class="memories-subtitle">💛</p>
+                </div>
+
+                <!-- One Image at a Time Album Carousel (Requirement 5) -->
+                <div class="memory-album-card" id="memory-album-card">
+                    <div class="album-tape"></div>
+                    
+                    <div class="album-display-area">
+                        <button class="album-nav-btn prev-btn" onclick="prevMemory()" title="Previous Memory">❮</button>
+                        
+                        <div class="album-photo-frame">
+                            <div class="photo-container">
+                                <img id="memory-image" src="" alt="Memory Photo" class="active-photo">
+                            </div>
+                            <div class="album-details">
+                                <div class="memory-tag" id="memory-tag">Precious Moment</div>
+                                <h3 class="memory-caption" id="memory-caption">Loading memory...</h3>
+                                <div class="memory-counter" id="memory-counter">1 / 6</div>
+                            </div>
+                        </div>
+
+                        <button class="album-nav-btn next-btn" onclick="nextMemory()" title="Next Memory">❯</button>
+                    </div>
+
+                    <!-- Carousel Dots & Auto-progress bar -->
+                    <div class="album-controls">
+                        <div class="carousel-dots" id="carousel-dots"></div>
+                        <div class="autoplay-indicator">
+                            <div class="autoplay-bar" id="autoplay-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Treat Quiz Box (Evading Buttons) -->
+                <div class="treat-quiz-box">
+                    <div class="treat-box-pin">🍽️</div>
+                    <h2 class="treat-heading">কোথায় দিচ্ছিস treat? 😋</h2>
+                    <p class="treat-sub">যেইখানে ইচ্ছা Choose কর:</p>
+
+                    <div id="treat-container" class="treat-container">
+                        <button class="bubbly-btn treat-btn success-btn" onclick="handleTreatSuccess()">
+                            <span>📍 Gulshan</span>
+                        </button>
+                        <button class="bubbly-btn treat-btn runaway-btn" id="runaway-1">
+                            <span>📍 Shewrapara</span>
+                        </button>
+                        <button class="bubbly-btn treat-btn runaway-btn" id="runaway-2">
+                            <span>📍 Mirpur 1</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Gulshan Reveal Card -->
+                    <div id="treat-reveal" class="hidden-reveal">
+                        <div class="celebration-badge">🎉 CONFIRMED! 🎉</div>
+                        <h3 class="reveal-title">Response saved! See you at Gulshan! 🥂</h3>
+                        <p class="reveal-caption">ও আরেকটা জিনিস: <i>"Majnu bhai's painting"</i> 🐴🎨</p>
+                        <div class="painting-frame">
+                            <img src="assets/majnu-painting.jpg" alt="Majnu bhai's painting" class="painting-img" onerror="this.src='assets/f9a1cfff-2c72-46ef-8dcd-ab82fd9c6cd4.jpg'">
+                            <img src="assets/majnu-painting2.jpg" alt="Majnu bhai's painting 2" class="painting-img" onerror="this.src='assets/f9a1cfff-2c72-46ef-8dcd-ab82fd9c6cd4.jpg'">
+                        </div>
+                        <p class="reveal-note">Happy Birthday Again! Good Night 🦆💖</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Full-Screen Birthday Splash Overlay with Grand Enter & Exit Animation -->
+    <div id="birthday-splash" class="birthday-splash-overlay" onclick="dismissBirthdaySplash()">
+        <div class="splash-backdrop-glow"></div>
+        <div class="splash-sunburst"></div>
+        <div class="splash-content">
+            <div class="splash-badge">
+                <span>✨ 👑 লায়লার আজকে জন্মদিন 👑 ✨</span>
+            </div>
+            
+            <div class="splash-title-wrapper">
+                <span class="splash-duck splash-duck-left">🦆</span>
+                <h1 class="splash-title">
+                    <span class="word word-happy">HAPPY</span>
+                    <span class="word word-birthday">BIRTHDAY!</span>
+                </h1>
+                <span class="splash-duck splash-duck-right">🐥</span>
+            </div>
+
+            <div class="splash-sub-banner">
+                <span class="splash-stars">⭐ 💖 🎂 💖 ⭐</span>
+                <p class="splash-subtext">আরো একশো বছর বাচিস! 🦆💛</p>
+            </div>
+
+            <div class="splash-skip-hint">
+                <button class="bubbly-btn splash-btn" onclick="dismissBirthdaySplash(event)">
+                    <span>✨</span>
+                </button>
+                <p class="tap-hint-text">Tap anywhere to continue 🦆</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Page 1: Wrong Bestie Modal -->
+    <div id="wrong-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-decor-badge">🚨 WRONG ANSWER 🚨</div>
+            <img src="assets/wrong-bestie.jpg" alt="Wrong Answer Meme" class="modal-img" onerror="this.src='assets/4b5fe7ad-9a9b-45ea-b395-00d06c3dbe03.jpg'">
+            <h3 id="modal-text" class="modal-title">Why did you click someone else?!</h3>
+            <button class="bubbly-btn bouncy-btn" onclick="closeModal('wrong-modal')">
+                <span>Try Again 🦆</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 2: Fat Duck Modal (Accept Gift) -->
+    <div id="fat-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-decor-badge">⚠️ FOOD OVERLOAD ⚠️</div>
+            <img src="assets/fat-duck.jpg" alt="Fat Duck Meme" class="modal-img" onerror="this.src='assets/download.png'">
+            <h3 class="modal-title">Too much fast food! You are fat now! 🦆🍔</h3>
+            <p class="modal-body-text">মানে খাবার দেখলেইইইই...</p>
+            <button class="bubbly-btn bouncy-btn" onclick="closeModal('fat-modal')">
+                <span>Peanut Butter Button! 🤤</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 2: Angry Duck Modal (Decline Gift) -->
+    <div id="angry-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-decor-badge">😡 HOW DARE YOU 😡</div>
+            <img src="assets/angry-duck.jpg" alt="Angry Duck Meme" class="modal-img" onerror="this.src='assets/e669f0ff-f25a-410c-b6f1-47e3a4902594.jpg'">
+            <h3 class="modal-title">তুই আমার গিফট রিজেক্ট করস ?! কত বড় সাহস 😤</h3>
+            <p class="modal-body-text"></p>
+            <button class="bubbly-btn bouncy-btn" onclick="closeModal('angry-modal')">
+                <span>Sorry, I'll accept! 😭🍟</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
